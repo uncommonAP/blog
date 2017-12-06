@@ -4,10 +4,14 @@ import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import thunkMiddleware from 'redux-thunk'
 
+import articles from '../react/articlesIndex/actions/getAllArticles'
+
 const middlewares = [thunkMiddleware]
 
 const store = createStore(
-  combineReducers({}),
+  combineReducers({
+    articles
+  }),
   applyMiddleware(...middlewares)
 )
 
@@ -15,7 +19,7 @@ import BlogSite from '../react/BlogSite'
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <Provider store={store}><BlogSite /></Provider>, 
+    <Provider store={store}><BlogSite /></Provider>,
     document.getElementById('app')
   );
 })
