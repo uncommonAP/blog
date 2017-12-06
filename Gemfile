@@ -12,6 +12,10 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+group :test do
+  gem 'database_cleaner'
+end
+
 group :development, :test do
   gem 'capybara'
   gem 'factory_bot_rails'
@@ -20,6 +24,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'shoulda'
   gem 'valid_attribute'
+  gem 'faker'
 end
 
 group :production do
