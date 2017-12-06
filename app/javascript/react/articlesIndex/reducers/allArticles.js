@@ -14,6 +14,8 @@ const articles = (state = intitialState, action) => {
         isFetching: false,
         articles: action.articles
       })
+    default:
+      return state
   }
 }
 
