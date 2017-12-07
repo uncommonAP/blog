@@ -6,4 +6,9 @@ module ControllerHelper
     body = JSON.parse(response.body, symbolize_names: true)
     return body
   end
+
+  def get_show(id)
+    get :show, params: { id: id }
+    JSON.parse(response.body, symbolize_names: true)
+  end
 end
