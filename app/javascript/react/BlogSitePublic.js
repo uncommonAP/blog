@@ -12,9 +12,10 @@ class BlogSitePublic extends Component {
     return(
       <div>
         <Switch>
-          <Route strict path={`${this.props.match.path}show/`} component={ArticleShow}/>
+          <Route strict path={`/articles/show/:id`} component={ArticleShow}/>
+          <Route exact path={`/articles`} component={ArticlesIndex}/>
+          <NavLink to='/articles'><button>See all Articles</button></NavLink>
           <div>This is just a placeholder!</div>
-          <ArticlesIndex />
         </Switch>
       </div>
     )
