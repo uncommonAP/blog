@@ -6,4 +6,6 @@ Rails.application.routes.draw do
       resources :articles, only:[:index, :show]
     end
   end
+
+  get '*path', to: 'static_files#index'
 end
