@@ -1,5 +1,5 @@
 class Api::V1::ArticlesController < ApplicationController
   def index
-    render json: { articles: Article.all }
+    render json: Article.all, scope: :index
   end
 end
