@@ -1,9 +1,13 @@
 class ArticleSerializer < ActiveModel::Serializer
   attributes :id, :title, :created, :updated
-  attributes :body if !:index?
+  attribute :body, if: :not_index?
 
-  def index?
-    true if scope == :index
+  def not_index?
+    if scope != :index
+      return true
+    else
+      return false
+    end
   end
 
   def created
