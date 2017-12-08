@@ -21,7 +21,14 @@ import BlogSite from '../react/BlogSite'
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <Provider store={store}><BlogSite /></Provider>,
+    <Provider store={store}><BlogSite type='public'/></Provider>,
     document.getElementById('app')
   );
+})
+
+document.addEventListener('DOMContentLoaded', () => {
+  ReactDOM.render(
+    <Provider store={store}><BlogSite type='admin' /></Provider>,
+    document.getElementById('admin')
+  )
 })

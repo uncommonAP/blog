@@ -3,6 +3,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getAllArticles } from './articlesPublic/actions/getAllArticles'
 import BlogSitePublic from './BlogSitePublic'
+import BlogSiteAdmin from './BlogSiteAdmin'
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -20,9 +21,15 @@ class BlogSiteContainer extends Component {
   }
 
   render() {
+    let renderSwitch
+    if (this.props.type === 'public') {
+      renderSwitch = <BlogSitePublic />
+    } else if (this.props.type === 'admin') {
+      renderSwitch = <BlogSiteAdmin />
+    }
     return(
       <BrowserRouter>
-        <BlogSitePublic />
+        {renderSwitch}
       </BrowserRouter>
     )
   }
