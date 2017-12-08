@@ -16,7 +16,7 @@ let fetchAllArticlesSuccess = (articles) => {
 
 let getAllArticles = () => dispatch => {
   dispatch(fetchAllArticles())
-  return fetch('/api/v1/articles', {
+  return fetch('/api/v1/articles.json', {
     credentials: "same-origin",
     headers: {"Content-Type": "application/json"}
   }) .then(response => response.json())

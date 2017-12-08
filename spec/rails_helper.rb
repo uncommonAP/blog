@@ -8,6 +8,7 @@ require 'rspec/rails'
 require 'factory_bot'
 require 'factory_bot_rails'
 require 'database_cleaner'
+require_relative './helpers/controller_helper'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -48,6 +49,8 @@ RSpec.configure do |config|
       example.run
     end
   end
+
+  config.include ControllerHelper
 
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and

@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import ArticlesIndex from './articlesIndex/containers/ArticlesIndex'
+import { Switch, Route, NavLink } from 'react-router-dom'
+import ArticlesIndex from './articlesPublic/containers/ArticlesIndex'
+import ArticleShow from './articlesPublic/containers/ArticleShow'
 
 class BlogSitePublic extends Component {
   constructor(props) {
@@ -9,8 +11,12 @@ class BlogSitePublic extends Component {
   render() {
     return(
       <div>
-        <div>This is just a placeholder!</div>
-        <ArticlesIndex />
+        <Switch>
+          <Route strict path={`/articles/show/:id`} component={ArticleShow}/>
+          <Route exact path={`/articles`} component={ArticlesIndex}/>
+          <NavLink to='/articles'><button>See all Articles</button></NavLink>
+          <div>This is just a placeholder!</div>
+        </Switch>
       </div>
     )
   }
