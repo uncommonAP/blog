@@ -6,4 +6,17 @@ class Api::V1::ArticlesController < ApplicationController
   def show
     render json: Article.find(params[:id]), scope: :show
   end
+
+  def create
+    article = Article.new(article_params)
+    if article.save
+      render json: article
+    end
+  end
+
+  private
+
+  def article_params
+    params.require(:article).permit(:title, :body)
+  end
 end
