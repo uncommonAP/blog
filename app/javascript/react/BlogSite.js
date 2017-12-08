@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { getAllArticles } from './articlesPublic/actions/getAllArticles'
+import { getAllArticles } from './sharedResources/actions/getAllArticles'
 import BlogSitePublic from './BlogSitePublic'
 import BlogSiteAdmin from './BlogSiteAdmin'
 
