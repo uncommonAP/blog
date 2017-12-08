@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getAllArticles } from './sharedResources/actions/getAllArticles'
-import BlogSitePublic from './BlogSitePublic'
 import BlogSiteAdmin from './BlogSiteAdmin'
 
 const mapDispatchToProps = dispatch => {
@@ -11,7 +10,7 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-class BlogSiteContainer extends Component {
+class AdminLandingContainer extends Component {
   constructor(props) {
     super(props)
   }
@@ -21,20 +20,14 @@ class BlogSiteContainer extends Component {
   }
 
   render() {
-    let renderSwitch
-    if (this.props.type === 'public') {
-      renderSwitch = <BlogSitePublic />
-    } else if (this.props.type === 'admin') {
-      renderSwitch = <BlogSiteAdmin />
-    }
     return(
       <BrowserRouter>
-        {renderSwitch}
+        <BlogSiteAdmin />
       </BrowserRouter>
     )
   }
 }
 
-const BlogSite = connect(null, mapDispatchToProps)(BlogSiteContainer)
+const AdminLanding = connect(null, mapDispatchToProps)(AdminLandingContainer)
 
-export default BlogSite
+export default AdminLanding
