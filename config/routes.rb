@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  root 'static_files#index'
   get '/admin', to: 'static_files#admin'
+  get '/', to: 'static_files#index'
 
   namespace :api do
     namespace :v1 do
