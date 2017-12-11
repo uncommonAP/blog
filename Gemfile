@@ -1,5 +1,6 @@
 source 'https://rubygems.org/'
 
+gem 'dotenv-rails', require: 'dotenv/rails-now', group: [:development, :test]
 gem 'rails', '~> 5.1.2'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
@@ -7,6 +8,9 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'webpacker', '~> 3.0'
 gem "active_model_serializers"
+gem 'omniauth'
+gem 'omniauth-facebook'
+
 group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
