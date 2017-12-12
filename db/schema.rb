@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 20171211160744) do
     t.string "name", null: false
     t.string "oauth_token", null: false
     t.string "oauth_expires_at", null: false
-    t.string "picture", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
