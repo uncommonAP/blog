@@ -5,6 +5,5 @@ FactoryBot.define do
     name Faker::Name.name
     oauth_token Faker::Number.number(10)
     oauth_expires_at Faker::Time.forward(2, :afternoon)
-    picture Faker::Internet.url
   end
 end
