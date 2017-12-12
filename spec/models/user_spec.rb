@@ -16,7 +16,6 @@ RSpec.describe User, type: :model do
       expect(user).to validate_presence_of(:name)
       expect(user).to validate_presence_of(:oauth_token)
       expect(user).to validate_presence_of(:oauth_expires_at)
-      expect(user).to validate_presence_of(:picture)
     end
   end
 end
