@@ -23,16 +23,25 @@ let getLoginStatus = () => dispatch => {
       FB.api('/me', function(response) {
         authResponse["name"] = response.name
       })
-
-      dispatch(checkLoginStateSuccess(authResponse))
+      serializePayload(authResponse)
     } else {
       dispatch(publicState())
     }
   })
 }
 
-let startUserSession = authResponse => dispatch => {
-  return fetch('api/v1/', {
+let serializePayload = authResponse => {
+  let userPayLoad = {user: {
+    uid: authResponse.userId,
+    name: authResponse.name,
+    oauth_token: authResponse.accessToken,
+    oauth_expires_at: authResponse.expiresIn
+  }}
+  startUserSession(userPayLoad)
+}
+
+let startUserSession = userPayLoad => dispatch => {
+  return fetch('api/v1/users', {
     method: 'POST',
     body: JSON.stringify(authResponse),
     credentials: "same-origin",
