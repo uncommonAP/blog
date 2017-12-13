@@ -1,13 +1,15 @@
 class Api::V1::UsersController < ApplicationController
+  protect_from_forgery unless: -> { request.format.json? }
+
   def create
     if User.find_by(uid: params[:user][:uid], name: params[:user][:name]).nil?
       user = User.from_facebook(user_params)
       sign_in(user)
-      render json: user
+      render json: current_user
     else
       user = User.find_by(uid: params[:user][:uid], name: params[:user][:name])
       sign_in(user)
-      render json: user
+      render json: current_user
     end
   end
 
