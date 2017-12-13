@@ -26,18 +26,21 @@ class ArticlesIndexContainer extends Component {
   render() {
     let articleListItem = this.props.articles.map((article, index) => {
       return(
-        <li key={index}>
+        <div key={index} className="article-index-tile">
           <NavLink to={`${this.props.match.path}/show/${article.id}`} id={article.id} onClick={this.handleClick}>
             {article.title}
           </NavLink><br />
           Created: {article.created}<br/> Updated: {article.updated}
-        </li>
+        </div>
       )
     })
     return(
-      <ul>
+      <div className="article-index">
+        <h1>Article Index</h1>
+      <div>
         {articleListItem}
-      </ul>
+      </div>
+    </div>
     )
   }
 }
