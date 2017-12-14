@@ -15,7 +15,7 @@ class BlogSiteAdmin extends Component {
         <Switch>
           <Route strict path='admin/articles/' component={ArticlesIndexAdmin} />
           <Route strict path='admin/show/:id/' component={ArticleShowAdmin} />
-          <Route strict path='admin/create' component={NewArticle} />
+          <Route strict path='admin/create/' component={NewArticle} />
           Welcome to your blog site! What would you like to do?
         </Switch>
 
