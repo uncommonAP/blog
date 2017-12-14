@@ -17,7 +17,8 @@ const store = createStore(
   applyMiddleware(...middlewares)
 )
 
-import BlogSite from '../react/BlogSite'
+import PublicLanding from '../react/PublicLanding'
+import AdminLanding from '../react/AdminLanding'
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
