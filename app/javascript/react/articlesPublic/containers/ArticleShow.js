@@ -25,12 +25,12 @@ class ArticleShowContainer extends Component {
 
   render() {
     return(
-      <div>
+      <div className="article-show">
         <h1>{this.props.article.title}</h1>
         Created: {this.props.article.created}<br/>
         Last Updated: {this.props.article.updated}
         <hr />
-        <div>{this.props.article.body}</div>
+        <div className="article-body">{this.props.article.body}</div>
       </div>
     )
   }
