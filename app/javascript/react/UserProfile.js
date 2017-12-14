@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getLoginStatus, startUserSession } from './sharedResources/currentUser/actions/loginStatus'
+import { getSessionStatus, startUserSession } from './sharedResources/currentUser/actions/loginStatus'
 
 const mapStateToProps = state => {
   return {
@@ -11,7 +11,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getLoginStatus: () => { dispatch(getLoginStatus()) },
+    getSessionStatus: () => { dispatch(getSessionStatus()) },
+    getFbLoginStatus: () => { dispatch(getFbLoginStatus()) },
     startUserSession: (authResponse) => { dispatch(startUserSession(authResponse))}
   }
 }
@@ -22,17 +23,22 @@ class UserProfileContainer extends Component {
   }
 
   componentWillMount() {
-    this.props.getLoginStatus()
+    this.props.getSessionStatus()
   }
 
   componentDidUpdate() {
     if (Object.keys(this.props.authResponse).length > 0) {
-      debugger
       this.props.startUserSession(this.props.authResponse)
+    } else if (this.props.currentUser.public) {
+      this.props.getFbLoginStatus()
     }
   }
 
   render(){
+    let welcomeMessage
+    if (this.props.currentUser.name) {
+      welcomeMessage = <div>Welcome {this.props.currentUser.name}!</div>
+    }
     return(
       <div>
         <div className="fb-login-button"
@@ -40,10 +46,10 @@ class UserProfileContainer extends Component {
           data-size="large"
           data-button-type="continue_with"
           data-show-faces="false"
-          data-auto-logout-link="false"
-          data-use-continue-as="false"
-          ></div>
-          <div>Welcome {this.props.currentUser.name}!</div>
+          data-auto-logout-link="true"
+          data-use-continue-as="true">
+        </div>
+        {welcomeMessage}
       </div>
     )
   }
