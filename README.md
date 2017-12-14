@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Initial setup
+* `bundle install`
+* `yarn install` (`brew install yarn` first if you are using `npm`)
+* `rails db:create`
+* `rails db:migrate`
+* `rails s`
+* in a new terminal tab: `./bin/webpack-dev-server`
+* navigate to `localhost:3000`
 
-Things you may want to cover:
+The current build has an admin environment. In order to access it during development, log in via root path. Once you see your name on the page from the automatic (or manual) facebook login, do the following:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+*  enter the database and look at your user object.
+*  Copy the `uid` and save it in your `.env` file in the root directory as ADMIN_UID.
+  * At this point you should have access to the form to create an article and all of the admin containers as they are created
