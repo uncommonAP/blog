@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
-import { toggleArticle } from '../actions/getArticle'
+import { toggleArticle } from '../../sharedResources/actions/getArticle'
 
 const mapStateToProps = state => {
   return { articles: state.articles.articles }

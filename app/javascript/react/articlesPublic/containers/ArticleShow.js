@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getArticle } from '../actions/getArticle'
+import { getArticle } from '../../sharedResources/actions/getArticle'
 
 const mapStateToProps = state => {
   return {

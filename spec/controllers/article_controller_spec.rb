@@ -3,6 +3,7 @@ require 'json'
 
 RSpec.describe Api::V1::ArticlesController, type: :controller do
   let!(:article_list) { create_list(:article, 10) }
+  let!(:create_article) { {title: Faker::Lorem.sentence(4), body: Faker::Lorem.paragraphs(4).to_s }}
 
   describe "articles#index" do
     it "has a successful response" do
@@ -55,6 +56,19 @@ RSpec.describe Api::V1::ArticlesController, type: :controller do
         expect(body[:article]).to include(:updated)
         expect(body[:article]).to include(:body)
       end
+    end
+  end
+
+  xdescribe "article#create" do
+    it "creates a new article object" do
+      post :create, params: { article: create_article}
+      expect(response.status).to be(200)
+    end
+
+    it "returns the article object that was created" do
+      post :create, params: {article: create_article}
+      body = JSON.parse(response.body, symbolize_names: true)
+      expect(body[:article][:id]).to eq(Article.last.id)
     end
   end
 end

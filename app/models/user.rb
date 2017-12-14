@@ -12,4 +12,12 @@ class User < ApplicationRecord
     user.save!
     return user
   end
+
+  def admin?
+    if self.uid == ENV['ADMIN_UID']
+      return true
+    else
+      return false
+    end
+  end
 end

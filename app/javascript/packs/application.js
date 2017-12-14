@@ -4,8 +4,8 @@ import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import thunkMiddleware from 'redux-thunk'
 
-import articles from '../react/articlesPublic/reducers/allArticles'
-import article from '../react/articlesPublic/reducers/article'
+import articles from '../react/sharedResources/reducers/allArticles'
+import article from '../react/sharedResources/reducers/article'
 
 const middlewares = [thunkMiddleware]
 
@@ -17,11 +17,19 @@ const store = createStore(
   applyMiddleware(...middlewares)
 )
 
-import BlogSite from '../react/BlogSite'
+import PublicLanding from '../react/PublicLanding'
+import AdminLanding from '../react/AdminLanding'
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <Provider store={store}><BlogSite /></Provider>,
+    <Provider store={store}><PublicLanding/></Provider>,
     document.getElementById('app')
   );
+})
+
+document.addEventListener('DOMContentLoaded', () => {
+  ReactDOM.render(
+    <Provider store={store}><AdminLanding type='admin' /></Provider>,
+    document.getElementById('admin')
+  )
 })

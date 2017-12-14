@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+
+  scope :admin do
+    get '/', to: 'admin_files#admin'
+    get '*path', to: 'admin_files#admin'
+  end
+
   root 'static_files#index'
 
   namespace :api do
