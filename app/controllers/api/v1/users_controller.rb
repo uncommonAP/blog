@@ -13,6 +13,14 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
+  def check_session
+    if current_user.nil?
+      render json: { public: true }
+    else
+      render json: current_user
+    end
+  end
+
   def sign_in(user)
     session[:user_id] = user.id
   end

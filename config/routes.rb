@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+      get '/users/check_session'
       resources :users, only: [:create]
       resources :articles, only:[:index, :show]
     end
