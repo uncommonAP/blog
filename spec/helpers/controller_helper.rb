@@ -11,4 +11,9 @@ module ControllerHelper
     get :show, params: { id: id }
     JSON.parse(response.body, symbolize_names: true)
   end
+
+  def create_parser(params)
+    post :create, params: params
+    JSON.parse(response.body, symbolize_names: true)
+  end
 end
