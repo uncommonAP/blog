@@ -54,7 +54,7 @@ let showLoginMessage = message => {
 
 let getSessionStatus = () => dispatch => {
   dispatch(checkSessionStatus())
-  return fetch('api/v1/users/check_session.json', {
+  return fetch('/api/v1/users/check_session.json', {
     credentials: "same-origin",
     headers: { "Content-Type": "application/json"}
   }) .then(response => response.json())
