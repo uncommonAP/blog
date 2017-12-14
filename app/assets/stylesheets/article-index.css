@@ -1,0 +1,14 @@
+.article-index{
+  padding: 10px;
+  text-align: center;
+}
+
+.article-index-tile {
+  background-color: white;
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+  padding: 10px;
+  margin: 10px;
+  text-align: left;
+}

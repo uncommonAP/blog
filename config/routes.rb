@@ -1,10 +1,18 @@
 Rails.application.routes.draw do
-  get '/admin', to: 'static_files#admin'
-  get '/', to: 'static_files#index'
+
+  scope :admin do
+    get '/', to: 'static_files#admin'
+    
+    get '*path', to: 'static_files#admin'
+  end
+
+  root 'static_files#index'
 
   namespace :api do
     namespace :v1 do
-      resources :articles, only:[:index, :show, :create]
+      get '/users/check_session'
+      resources :users, only: [:create]
+      resources :articles, only:[:index, :show]
     end
   end
 
