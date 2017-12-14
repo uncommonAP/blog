@@ -10,7 +10,6 @@ gem 'webpacker', '~> 3.0'
 gem "active_model_serializers"
 gem 'omniauth'
 gem 'omniauth-facebook'
-gem "koala"
 group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
