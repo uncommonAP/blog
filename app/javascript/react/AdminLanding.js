@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { getAllArticles } from './articlesPublic/actions/getAllArticles'
-import BlogSitePublic from './BlogSitePublic'
+import { getAllArticles } from './sharedResources/actions/getAllArticles'
+import BlogSiteAdmin from './BlogSiteAdmin'
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -10,7 +10,7 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-class BlogSiteContainer extends Component {
+class AdminLandingContainer extends Component {
   constructor(props) {
     super(props)
   }
@@ -22,12 +22,12 @@ class BlogSiteContainer extends Component {
   render() {
     return(
       <BrowserRouter>
-        <BlogSitePublic />
+        <BlogSiteAdmin />
       </BrowserRouter>
     )
   }
 }
 
-const BlogSite = connect(null, mapDispatchToProps)(BlogSiteContainer)
+const AdminLanding = connect(null, mapDispatchToProps)(AdminLandingContainer)
 
-export default BlogSite
+export default AdminLanding
