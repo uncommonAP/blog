@@ -5,6 +5,8 @@ RSpec.describe Api::V1::Admin::ArticlesController, type: :controller do
   let!(:user_public) { FactoryBot.create(:user) }
   let!(:create_article) { {title: Faker::Lorem.sentence(4), body: Faker::Lorem.paragraphs(4).to_s }}
   let!(:article_draft) { FactoryBot.create(:article) }
+  let!(:article_published_list) { create_list(:article, 45, :published) }
+  let!(:article_draft_list) { create_list(:article, 4) }
 
   before(:each) do
     controller.stub(:verify_admin)
@@ -41,6 +43,14 @@ RSpec.describe Api::V1::Admin::ArticlesController, type: :controller do
       body = patch_parser(:publish, {id: article_draft.id, article: article_draft})
       expect(Article.find(body[:article][:id]).draft).to be(false)
       expect(Article.find(body[:article][:id]).published).to be(true)
+    end
+  end
+
+  describe 'articles#draft_index' do
+    it "returns a list of all article drafts" do
+      log_in_as_user_admin(user_admin)
+      body = get_parsed(:draft_index)
+      expect(body[:articles].length).to eq(5)
     end
   end
 end
