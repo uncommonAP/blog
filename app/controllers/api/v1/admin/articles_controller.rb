@@ -24,6 +24,11 @@ class Api::V1::Admin::ArticlesController < AdminFilesController
     end
   end
 
+  def draft_index
+    articles = Article.all.where(draft: true)
+    render json: articles
+  end
+
   private
 
   def article_params
