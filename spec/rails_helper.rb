@@ -50,6 +50,10 @@ RSpec.configure do |config|
     end
   end
 
+  config.mock_with :rspec do |mocks|
+    mocks.syntax = :should
+  end
+
   config.include ControllerHelper
 
   # RSpec Rails can automatically mix in different behaviours to your tests
