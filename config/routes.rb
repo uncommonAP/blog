@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       namespace :admin do
-        patch 'articles/publish/:id', to: 'articles#publish'
+        patch '/articles/publish/:id', to: 'articles#publish'
+        get '/articles/draft_index'
         resources :articles, except: [:index, :show]
       end
 
