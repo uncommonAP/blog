@@ -71,10 +71,11 @@ let getFbLoginStatus = () => dispatch => {
   dispatch(checkLoginState())
   return FB.getLoginStatus(function(response) {
     if (response.status === 'connected') {
+      let incompleteResponse = response.authResponse
       FB.api('/me', function(profile) {
-        let authResponse = Object.assign({}, response.authResponse, profile)
+        let authResponse = Object.assign({}, incompleteResponse, profile)
+        dispatch(checkLoginStateSuccess(authResponse))
       })
-      dispatch(checkLoginStateSuccess(authResponse))
     } else {
       let message = "Please log in to continue"
       dispatch(showLoginMessage(message))

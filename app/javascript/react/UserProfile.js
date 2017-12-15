@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getSessionStatus, startUserSession } from './sharedResources/currentUser/actions/loginStatus'
+import { getSessionStatus, startUserSession, getFbLoginStatus } from './sharedResources/currentUser/actions/loginStatus'
 
 const mapStateToProps = state => {
   return {
