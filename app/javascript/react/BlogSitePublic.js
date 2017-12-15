@@ -12,9 +12,9 @@ class BlogSitePublic extends Component {
     return(
       <div>
         <Switch>
-          <Route strict path={`/articles/show/:id`} component={ArticleShow}/>
+          <Route strict path={`/articles/show/:id/`} component={ArticleShow}/>
           <Route strict path={`/articles/`} component={ArticlesIndex}/>
-          <NavLink to='/articles'><button>See all Articles</button></NavLink>
+          <NavLink to='/articles/'><button>See all Articles</button></NavLink>
           <div>This is just a placeholder!</div>
         </Switch>
       </div>
