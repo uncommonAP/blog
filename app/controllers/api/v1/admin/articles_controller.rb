@@ -1,5 +1,6 @@
 class Api::V1::Admin::ArticlesController < AdminFilesController
   before_action :verify_admin
+  protect_from_forgery unless: -> { request.format.json? }
 
   def create
     draft = Article.new(article_params)
