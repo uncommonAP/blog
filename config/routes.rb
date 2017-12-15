@@ -9,6 +9,11 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+      namespace :admin do
+        patch 'articles/publish/:id', to: 'articles#publish'
+        resources :articles, except: [:index, :show]
+      end
+
       get '/users/check_session'
       resources :users, only: [:create]
       resources :articles, only:[:index, :show]
