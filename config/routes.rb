@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     get '*path', to: 'admin_files#admin'
   end
 
-  root 'static_files#index'
+  root 'public_files#index'
 
   namespace :api do
     namespace :v1 do
@@ -15,5 +15,5 @@ Rails.application.routes.draw do
     end
   end
 
-  get '*path', to: 'static_files#index'
+  get '*path', to: 'public_files#index'
 end
