@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { getAllArticles } from './sharedResources/actions/getAllArticles'
+import { getAllArticles } from './sharedResources/articles/actions/getAllArticles'
 import BlogSitePublic from './BlogSitePublic'
 
 const mapDispatchToProps = dispatch => {
