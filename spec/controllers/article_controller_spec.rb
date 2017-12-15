@@ -2,7 +2,8 @@ require 'rails_helper'
 require 'json'
 
 RSpec.describe Api::V1::ArticlesController, type: :controller do
-  let!(:article_list) { create_list(:article, 10) }
+  let!(:article_list) { create_list(:article, 10, :published) }
+  let!(:article_draft_list) { create_list(:article, 5)}
 
   describe "articles#index" do
     it "has a successful response" do
