@@ -1,8 +1,8 @@
 class Api::V1::ArticlesController < ApplicationController
-  protect_from_forgery unless: -> { request.format.json? }  
+  protect_from_forgery unless: -> { request.format.json? }
 
   def index
-    render json: Article.all, scope: :index
+    render json: Article.all.where(published: true), scope: :index
   end
 
   def show
