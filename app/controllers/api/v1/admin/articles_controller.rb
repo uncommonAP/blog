@@ -19,7 +19,6 @@ class Api::V1::Admin::ArticlesController < AdminFilesController
 
   def publish
     article = Article.find(params[:id])
-    binding.pry
     if article.publish(current_user)
       render json: article
     end
