@@ -17,7 +17,6 @@ class NewArticle extends Component {
   }
 
   render() {
-    debugger
     console.log(this.state);
     return(
       <form onSubmit={this.handleSubmit}>

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   end
 
   root 'public_files#index'
+  get '/sign_out', to: 'api/v1/users#sign_out'
 
   namespace :api do
     namespace :v1 do

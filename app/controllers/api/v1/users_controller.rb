@@ -26,7 +26,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def sign_out
-    session[:uid] = nil
+    session[:user_id] = nil
   end
 
   private
