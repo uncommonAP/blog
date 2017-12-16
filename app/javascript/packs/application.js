@@ -6,13 +6,15 @@ import thunkMiddleware from 'redux-thunk'
 
 import articles from '../react/sharedResources/articles/reducers/publishedArticles'
 import article from '../react/sharedResources/articles/reducers/article'
+import drafts from '../react/sharedResources/articles/reducers/drafts'
 
 const middlewares = [thunkMiddleware]
 
 const store = createStore(
   combineReducers({
     articles,
-    article
+    article,
+    drafts
   }),
   applyMiddleware(...middlewares)
 )
