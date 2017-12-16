@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { getAllArticles } from './sharedResources/articles/actions/getAllArticles'
+import { getPublishedArticles } from './sharedResources/articles/actions/getPublishedArticles'
 import BlogSitePublic from './BlogSitePublic'
 
 const mapDispatchToProps = dispatch => {
   return {
-    getAllArticles: () => { dispatch(getAllArticles()) }
+    getPublishedArticles: () => { dispatch(getPublishedArticles()) }
   }
 }
 
@@ -16,7 +16,7 @@ class PublicLandingContainer extends Component {
   }
 
   componentWillMount() {
-    this.props.getAllArticles()
+    this.props.getPublishedArticles()
   }
 
   render() {

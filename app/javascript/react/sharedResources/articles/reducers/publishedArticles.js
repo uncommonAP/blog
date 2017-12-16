@@ -1,4 +1,4 @@
-import { FETCH_ALL_ARTICLES, FETCH_ALL_ARTICLES_SUCCESS } from '../actions/getAllArticles'
+import { FETCH_PUBLIC_ARTICLES, FETCH_PUBLIC_ARTICLES_SUCCESS } from '../actions/getPublishedArticles'
 
 let intitialState = {
   isFetching: false,
@@ -7,9 +7,9 @@ let intitialState = {
 
 const articles = (state = intitialState, action) => {
   switch (action.type) {
-    case FETCH_ALL_ARTICLES:
+    case FETCH_PUBLIC_ARTICLES:
       return Object.assign({}, state, { isFetching: true })
-    case FETCH_ALL_ARTICLES_SUCCESS:
+    case FETCH_PUBLIC_ARTICLES_SUCCESS:
       return Object.assign({}, state, {
         isFetching: false,
         articles: action.articles
