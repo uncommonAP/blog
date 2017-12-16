@@ -1,15 +1,15 @@
-export const FETCH_PUBLIC_ARTICLES = 'FETCH_PUBLIC_ARTICLES'
-export const FETCH_PUBLIC_ARTICLES_SUCCESS = 'FETCH_PUBLIC_ARTICLES_SUCCESS'
+export const FETCH_PUBLISHED_ARTICLES = 'FETCH_PUBLISHED_ARTICLES'
+export const FETCH_PUBLISHED_ARTICLES_SUCCESS = 'FETCH_PUBLISHED_ARTICLES_SUCCESS'
 
 let fetchPublishedArticles = () => {
   return {
-    type: FETCH_PUBLIC_ARTICLES
+    type: FETCH_PUBLISHED_ARTICLES
   }
 }
 
 let fetchPublishedArticlesSuccess = (articles) => {
   return {
-    type: FETCH_PUBLIC_ARTICLES_SUCCESS,
+    type: FETCH_PUBLISHED_ARTICLES_SUCCESS,
     articles
   }
 }
