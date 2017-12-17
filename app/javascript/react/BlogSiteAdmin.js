@@ -19,6 +19,7 @@ class BlogSiteAdmin extends Component {
           <div>
             Welcome to your blog site! What would you like to do?
             <NavLink to='/admin/create/' component={NewArticle}><button>Create</button></NavLink>
+            <NavLink to='/admin/articles/' component={ArticlesIndexAdmin}><button>Edit</button></NavLink>
           </div>
         </Switch>
 

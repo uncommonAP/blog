@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { toggleArticle } from '../../sharedResources/articles/actions/getArticle'
+import IndexTile from '../../sharedResources/components/IndexTile'
 
 const mapStateToProps = state => {
   return { articles: state.articles.articles }
@@ -9,7 +10,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    toggleArticle: (id) => { dispatch(toggleArticle(id)) }
   }
 }
 
@@ -26,12 +26,7 @@ class ArticlesIndexContainer extends Component {
   render() {
     let articleListItem = this.props.articles.map((article, index) => {
       return(
-        <div key={index} className="article-index-tile">
-          <NavLink to={`${this.props.match.path}show/${article.id}/`} id={article.id} onClick={this.handleClick}>
-            {article.title}
-          </NavLink><br />
-          Created: {article.created}<br/> Updated: {article.updated}
-        </div>
+        <IndexTile key={`pub${index}`} article={article} path={`${this.props.match.path}show/${article.id}/`} handleClick={this.handleClick}/>
       )
     })
     return(
