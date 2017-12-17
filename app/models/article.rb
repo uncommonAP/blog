@@ -4,7 +4,7 @@ class Article < ApplicationRecord
 
   def publish(user)
     if user.admin?
-      self.update(draft: false, published: true)
+      self.update(draft: false, published: true, published_on: Time.now())
     end
   end
 end

@@ -42,6 +42,7 @@ RSpec.describe Article, type: :model do
       article.publish(user)
       expect(article.draft).to be(false)
       expect(article.published).to be(true)
+      expect(article.published_on).not_to be('null')
     end
   end
 end
