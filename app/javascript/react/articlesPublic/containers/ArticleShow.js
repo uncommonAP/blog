@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getArticle } from '../../sharedResources/articles/actions/getArticle'
+import ShowTile from '../../sharedResources/components/ShowTile'
 
 const mapStateToProps = state => {
   return {
@@ -25,13 +26,7 @@ class ArticleShowContainer extends Component {
 
   render() {
     return(
-      <div className="article-show">
-        <h1>{this.props.article.title}</h1>
-        Created: {this.props.article.created}<br/>
-        Last Updated: {this.props.article.updated}
-        <hr />
-        <div className="article-body">{this.props.article.body}</div>
-      </div>
+      <ShowTile article={this.props.article} />
     )
   }
 }
