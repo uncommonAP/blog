@@ -36,7 +36,7 @@ class ArticlesIndexAdminContainer extends Component {
   render(){
     let articleList = this.props[this.props.view].map((article, index) => {
       return(
-        <IndexTile key={`index${index}`} article={article} path={`/admin/show/${article.id}`} />
+        <IndexTile key={`index${index}`} article={article} path={`/admin/show/${article.id}/`} />
       )
     })
     return(
