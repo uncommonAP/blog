@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Switch, Route, NavLink } from 'react-router-dom'
 import ArticlesIndexAdmin from './articlesAdmin/containers/ArticlesIndexAdmin'
-import ArticleShowAdmin from './articlesAdmin/containers/ArticlesIndexAdmin'
+import ArticleShowAdmin from './articlesAdmin/containers/ArticleShowAdmin'
 import NewArticle from './articlesAdmin/containers/NewArticle'
 
 class BlogSiteAdmin extends Component {
