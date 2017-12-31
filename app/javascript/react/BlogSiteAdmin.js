@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Switch, Route, NavLink } from 'react-router-dom'
 import ArticlesIndexAdmin from './articlesAdmin/containers/ArticlesIndexAdmin'
-import ArticleShowAdmin from './articlesAdmin/containers/ArticlesIndexAdmin'
+import ArticleShowAdmin from './articlesAdmin/containers/ArticleShowAdmin'
 import NewArticle from './articlesAdmin/containers/NewArticle'
 
 class BlogSiteAdmin extends Component {
@@ -19,6 +19,7 @@ class BlogSiteAdmin extends Component {
           <div>
             Welcome to your blog site! What would you like to do?
             <NavLink to='/admin/create/' component={NewArticle}><button>Create</button></NavLink>
+            <NavLink to='/admin/articles/' component={ArticlesIndexAdmin}><button>Edit</button></NavLink>
           </div>
         </Switch>
 

@@ -4,15 +4,19 @@ import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import thunkMiddleware from 'redux-thunk'
 
-import articles from '../react/sharedResources/articles/reducers/allArticles'
+import articles from '../react/sharedResources/articles/reducers/publishedArticles'
 import article from '../react/sharedResources/articles/reducers/article'
+import drafts from '../react/sharedResources/articles/reducers/drafts'
+import toggle from '../react/sharedResources/articles/reducers/toggle'
 
 const middlewares = [thunkMiddleware]
 
 const store = createStore(
   combineReducers({
     articles,
-    article
+    article,
+    drafts,
+    toggle
   }),
   applyMiddleware(...middlewares)
 )
