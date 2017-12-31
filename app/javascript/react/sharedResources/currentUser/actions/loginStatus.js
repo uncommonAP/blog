@@ -96,7 +96,7 @@ let serializePayload = authResponse => {
 let startUserSession = authResponse => dispatch => {
   dispatch(startSession())
   let payLoad = serializePayload(authResponse)
-  return fetch('api/v1/users.json', {
+  return fetch('/api/v1/users.json', {
     method: 'POST',
     body: JSON.stringify(payLoad),
     credentials: "same-origin",
